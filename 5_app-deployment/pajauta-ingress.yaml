@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pajauta-ingress
+  namespace: pajauta-namespace
+spec:
+  rules:
+    - host: pajauta.lmt.lv
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pajauta-service
+                port:
+                  number: 80

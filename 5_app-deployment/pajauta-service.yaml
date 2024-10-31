@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pajauta-service
+  namespace: pajauta-namespace
+spec:
+  type: ClusterIP
+  selector:
+    app: pajauta-label
+  ports:
+    - protocol: TCP
+      port: 80               
+      targetPort: 80

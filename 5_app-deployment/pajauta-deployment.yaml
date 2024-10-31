@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pajauta-nginx
+  namespace: pajauta-namespace 
+spec:
+  selector:
+    matchLabels:
+      app: pajauta-label
+  template:
+    metadata:
+      labels:
+        app: pajauta-label
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
